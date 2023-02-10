@@ -1,12 +1,13 @@
 const mongoose = require('mongoose')
 const Document = require('./Document')
+const config = require('./config.json')
 
 mongoose.set("strictQuery", false);
 mongoose.connect("mongodb://localhost/princepride-docs-clone")
 
 const io = require("socket.io")(3001, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "http://" + config.url + ":3000",
     methods: ["GET", "POST"],
   },
 })
