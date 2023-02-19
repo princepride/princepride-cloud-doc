@@ -62,7 +62,7 @@ export default function TextEditor() {
         socket.on("receive-changes", handler)
 
         return () => {
-            quill.off('receive-changes',handler)
+            socket.off('receive-changes',handler)
         }
     }, [socket, quill])
 
